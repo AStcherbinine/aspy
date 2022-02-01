@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-2.2.4-blue)
+![version](https://img.shields.io/badge/version-1.0-blue)
 ![pythonversion](https://img.shields.io/badge/Python-3.7+-blue)
 
 # ASPy - *Aurélien Stcherbinine Python*
