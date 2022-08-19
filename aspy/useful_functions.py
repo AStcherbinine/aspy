@@ -3,7 +3,7 @@
 
 ## useful_functions.py
 ## Created by Aurélien STCHERBININE
-## Last modified by Aurélien STCHERBININE : 05/04/2021
+## Last modified by Aurélien STCHERBININE : 09/08/2022
 
 ##-----------------------------------------------------------------------------------
 """Useful generics functions.
@@ -184,6 +184,28 @@ def fit_black_body(lam, sp, T_bounds=(0, 1e6)):
         The temperature of the fitted Planck's law radiance (in K).
     """
     T = curve_fit(planck, lam, sp, bounds=T_bounds)[0][0]
+    return T
+
+def planck_inv(lam, B_lam):
+    """Return the brightness temperature associated to the input wavelength and
+    Black body radiance. According to the Planck's law.
+
+    Parameters
+    ==========
+    lam : float
+        The wavelength (in m).
+    B_lam : float
+        The spectral radiance (in W.m-2.sr-1.m-1).
+    
+    Returns
+    =======
+    T : float
+        The temperature (in K).
+    """
+    h = const.h
+    c = const.c
+    kB = const.k
+    T = (h*c) / (lam*kB) / np.log(1 + (2*h*c*c) / (lam**5 * B_lam))
     return T
 
 def degre2(x, a, b, c):
