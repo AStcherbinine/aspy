@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0-blue)
+![version](https://img.shields.io/badge/version-1.1-blue)
 ![pythonversion](https://img.shields.io/badge/Python-3.7+-blue)
 
 # ASPy - *Aurélien Stcherbinine Python*
@@ -18,7 +18,7 @@ pip3 install .
 
 ## Credits
 
-© Aurélien Stcherbinine (2018–2022)
+© Aurélien Stcherbinine (2018–2023)
 
 Institut d'Astrophysique Spatiale (IAS), Université Paris-Saclay, CNRS, Orsay, France
 

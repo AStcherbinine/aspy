@@ -7,7 +7,7 @@ with open('requirements.txt', 'r') as f:
 
 setuptools.setup(
     name='aspy',
-    version='1.0',
+    version='1.1',
     author='Aurélien Stcherbinine',
     author_email='aurelien@stcherbinine.net',
     description="Aurélien Stcherbinine's personal useful additions to Python",
