@@ -3,7 +3,7 @@
 
 ## useful_functions.py
 ## Created by Aurélien STCHERBININE
-## Last modified by Aurélien STCHERBININE : 09/08/2022
+## Last modified by Aurélien STCHERBININE : 26/02/2023
 
 ##-----------------------------------------------------------------------------------
 """Useful generics functions.
@@ -27,7 +27,7 @@ from . import constants_perso as const2
 
 ##-----------------------------------------------------------------------------------
 ## Sauvegarde figure()
-def savefig3(fig, name, folder='../plots/'):
+def savefig3(fig, name, folder=''):
     """Save the matplotlip.pyplot figure as 3 differents files:
         - png image
         - svg image
@@ -42,19 +42,16 @@ def savefig3(fig, name, folder='../plots/'):
     name : str
         The filename to save the figure (without format extension).
         ex: 'figure' -> figure.png / figure.pdf / figure.pkl
-    folder : str, optional (default '../plots/')
+    folder : str, optional (default '')
         The target folder for saving.
     """
-    if folder[-1] != '/':
-        folder.append('/')
-    fig.savefig(folder + name + '.png')
-    fig.savefig(folder + name + '.svg')
-    fig.savefig(folder + name + '.pdf')
-    # with open(folder + name + '.pkl', 'wb') as output:
-        # pickle.dump(fig, output)
+    basename = os.path.join(folder, name)
+    fig.savefig(basename + '.png')
+    fig.savefig(basename + '.svg')
+    fig.savefig(basename + '.pdf')
     print('\033[01;34mFigure saved\033[0m')
 
-def savefig4(fig, name, folder='../plots/'):
+def savefig4(fig, name, folder=''):
     """Save the matplotlip.pyplot figure as 4 differents files:
         - png image
         - svg image
@@ -70,15 +67,14 @@ def savefig4(fig, name, folder='../plots/'):
     name : str
         The filename to save the figure (without format extension).
         ex: 'figure' -> figure.png / figure.svg /figure.pdf / figure.pkl
-    folder : str, optional (default '../plots/')
+    folder : str, optional (default '')
         The target folder for saving.
     """
-    if folder[-1] != '/':
-        folder.append('/')
-    fig.savefig(folder + name + '.png')
-    fig.savefig(folder + name + '.pdf')
-    fig.savefig(folder + name + '.svg')
-    with open(folder + name + '.pkl', 'wb') as output:
+    basename = os.path.join(folder, name)
+    fig.savefig(basename + '.png')
+    fig.savefig(basename + '.svg')
+    fig.savefig(basename + '.pdf')
+    with open(basename + '.pkl', 'wb') as output:
         pickle.dump(fig, output)
     print('\033[01;34mFigure saved\033[0m')
 
