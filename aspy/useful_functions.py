@@ -3,7 +3,7 @@
 
 ## useful_functions.py
 ## Created by Aurélien STCHERBININE
-## Last modified by Aurélien STCHERBININE : 14/08/2023
+## Last modified by Aurélien STCHERBININE : 15/05/2024
 
 ##-----------------------------------------------------------------------------------
 """Useful generics functions.
@@ -517,30 +517,34 @@ def datetime_to_float_array(time_array):
 
 ##-----------------------------------------------------------------------------------
 ## Recherche nom fichier
-def myglob(basename, exclude=[]):
-    """Return the absolute path according to the input basename.
-    If mulitple files corresponds to the basename, the user will be asked
+def myglob(basename, exclude=[], recursive=False):
+    """Return the absolute path according to the input `basename`.
+    If multiple files corresponds to `basename`, the user will be asked
     to choose one.
 
     --------------------------------------------
-    | int -> Select the corresponding filename.
-    | q/quit/exit -> Return None.
-    | a/all -> Return the list of all filenames.
+    * `int` --> Select the corresponding filename.</br>
+    * `q`/`quit`/`exit` --> Return `None`.</br>
+    * `a`/`all` --> Return the list of all filenames.</br>
+
     --------------------------------------------
 
     Parameters
-    ==========
+    ----------
     basename : str
         The basename of the target file.
-    exclude : list or np.ndarray of str, optional (default [])
+    exclude : array-like of str, default []
         List of sub-strings to exclude from the results.
+    recursive : bool, default False
+        If recursive is True, the pattern `**` will match any files and
+        zero or more directories and subdirectories.
 
     Returns
-    =======
+    -------
     fname : str
         The absolute path of the selected file.
     """
-    fnames = glob.glob(basename)
+    fnames = glob.glob(basename, recursive=recursive)
     if not isinstance(exclude, (list, np.ndarray)):
         raise ValueError("exclude parameter must be a list or numpy.ndarray")
     if len(exclude) > 0:
